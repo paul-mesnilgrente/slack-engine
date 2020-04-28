@@ -34,17 +34,41 @@ plugins:
 
 collections:
   basic_concepts:
-    output: true
-    layout: concepts
+    order:
+      - listening-to-messages.md
+      - sending-messages.md
+      - listening-to-events.md
+      - using-the-web-api.md
+      - listening-to-actions.md
+      - responding-to-actions.md
+      - acknowledging-events.md
+      - listening-and-responding-to-shortcuts.md
+      - listening-and-responding-to-commands.md
+      - opening-modals.md
+      - updating-and-pushing-views.md
+      - listening-for-view-submissions.md
+      - listening-and-responding-to-options.md
+
   advanced_concepts:
-    output: true
-    layout: concepts
+    order:
+      - handling-errors.md
+      - authorization.md
+      - conversation-stores.md
+      - global-middleware.md
+      - listener-middleware.md
+      - adding-context.md
+      - logging.md
+      - customizing-a-receiver.md
 
 defaults:
   - scope:
-      type: docs
+      type: basic_concepts
     values:
-      layout: docs
+      layout: concepts
+  - scope:
+      type: advanced_concepts
+    values:
+      layout: concepts
   - scope:
       type: posts
     values:
