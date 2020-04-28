@@ -13,3 +13,18 @@ app.message(':wave:', async ({ message, say }) => {
   await say(`Hello, <@${message.user}>`);
 });
 ```
+
+**Using a RegExp pattern**
+
+A RegExp pattern can be used instead of a string for more granular matching.
+
+All of the results of the RegExp match will be in`context.matches`.
+
+```javascript
+app.message(/^(hi|hello|hey).*/, async ({ context, say }) => {
+  // RegExp matches are inside of context.matches
+  const greeting = context.matches[0];
+
+  await say(`${greeting}, how are you?`);
+});
+```

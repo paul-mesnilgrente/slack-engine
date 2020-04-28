@@ -1,15 +1,22 @@
 ---
 title: Listening and responding to commands
 ---
-To listen to messages that your app has access to receive, you can use the
-message() method which filters out events that aren’t of type message.
+Listening and responding to commands
 
-message() accepts an optional pattern parameter of type string or RegExp object
-which filters out any messages that don’t match the pattern.
+Your app can use the command() method to listen to incoming slash command events. The method requires a commandName of type string.
 
-```javascript
-// This will match any message that contains 👋
-app.message(':wave:', async ({ message, say }) => {
-  await say(`Hello, <@${message.user}>`);
+Commands must be acknowledged with ack() to inform Slack your app has received the event.
+
+There are two ways to respond to slash commands. The first way is to use say(), which accepts a string or JSON payload. The second is respond() which is a utility for the response_url. These are explained in more depth in the responding to actions section.
+
+When configuring commands within your app configuration, you’ll continue to append /slack/events to your request URL.
+
+```js
+// The echo command simply echoes on command
+app.command('/echo', async ({ command, ack, say }) => {
+  // Acknowledge command request
+  await ack();
+
+  await say(`${command.text}`);
 });
 ```
