@@ -1,0 +1,47 @@
+---
+---
+// Foundation
+// override glogals - must be imported prior to the default settings
+@import 'foundation/foundation_globals';
+// default foundation settings
+@import 'foundation/foundation_settings';
+// override default settings
+@import 'foundation/foundation_overrides';
+// import foundation
+@import 'foundation/foundation_imports';
+
+@import 'rouge_github_theme';
+
+$padding-top: 25px;
+
+#body-container {
+  padding-top: $padding-top;
+}
+
+.side-nav-container {
+  #side-menu {
+    height: 100%;
+    position: fixed;
+    overflow: scroll;
+
+    margin-left: 0px;
+    padding-left: 15px;
+
+    .section {
+      font-weight: bold;
+      color: $dark-gray;
+
+      &:hover {
+        color: $black;
+      }
+    }
+
+    .sub-section {
+      color: $medium-gray;
+
+      &:hover {
+        color: $dark-gray;
+      }
+    }
+  }
+}
