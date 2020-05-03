@@ -29,7 +29,7 @@ $padding-top: 25px;
 
     .section {
       font-weight: bold;
-      color: $dark-gray;
+      color: lighten($black, 30%);
 
       &:hover {
         color: $black;
@@ -37,10 +37,10 @@ $padding-top: 25px;
     }
 
     .sub-section {
-      color: $medium-gray;
+      color: $dark-gray;
 
       &:hover {
-        color: $dark-gray;
+        color: darken($dark-gray, 30%);
       }
     }
   }
