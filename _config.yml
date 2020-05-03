@@ -13,20 +13,19 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Slack Engine
+title: Slack On Rails
 email: web@paul-mesnilgrente.com
 description: >-
   You are on the documentation of the rails engine for slack apps.
-baseurl: '/slack-engine' # the subpath of your site, e.g. /blog
-origin: https://github.com/paul-mesnilgrente/slack-engine
-repository: paul-mesnilgrente/slack-engine
+baseurl: '/slack-on-rails' # the subpath of your site, e.g. /blog
+origin: https://github.com/paul-mesnilgrente/slack-on-rails
+repository: paul-mesnilgrente/slack-on-rails
 url: '' # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ''
 github_username:  'paul-mesnilgrente'
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-time-machine
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
@@ -62,14 +61,6 @@ collections:
 
 defaults:
   - scope:
-      type: basic_concepts
-    values:
-      layout: concepts
-  - scope:
-      type: advanced_concepts
-    values:
-      layout: concepts
-  - scope:
       type: posts
     values:
       layout: posts
@@ -85,3 +76,4 @@ exclude:
   - vendor/ruby/
   - build
   - dist
+  - vendors

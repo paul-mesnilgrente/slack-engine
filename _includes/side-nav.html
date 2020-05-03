@@ -1,0 +1,22 @@
+<ul id="side-menu" class="vertical menu" data-smooth-scroll>
+  <li>
+    <a class="section" href="#basic-concepts">Basic concepts</a>
+    <ul class="nested vertical menu">
+      {% for doc in site.basic_concepts %}
+      <li>
+        <a class="sub-section" href="#{{ doc.title | slugify }}">{{ doc.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </li>
+  <li>
+    <a class="section" href="#advanced-concepts">Advanced concepts</a>
+    <ul class="nested vertical menu">
+      {% for doc in site.advanced_concepts %}
+      <li>
+        <a class="sub-section" href="#{{ doc.title | slugify }}">{{ doc.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </li>
+</ul>
