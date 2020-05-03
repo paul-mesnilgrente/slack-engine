@@ -1,12 +1,21 @@
 ---
 title: Acknowleding events
 ---
+<div class="cell medium-6" markdown="1">
 
-Acknowledging events
+Actions, commands, and options events must always be acknowledged using the
+`ack()` function. This lets Slack know that the event was received and updates
+the Slack user interface accordingly. Depending on the type of event, your
+acknowledgement may be different. For example, when acknowledging a dialog
+submission you will call ack() with validation errors if the submission contains
+errors, or with no parameters if the submission is valid.
 
-Actions, commands, and options events must always be acknowledged using the ack() function. This lets Slack know that the event was received and updates the Slack user interface accordingly. Depending on the type of event, your acknowledgement may be different. For example, when acknowledging a dialog submission you will call ack() with validation errors if the submission contains errors, or with no parameters if the submission is valid.
+We recommend calling `ack()` right away before sending a new message or fetching
+information from your database since you only have 3 seconds to respond.
 
-We recommend calling ack() right away before sending a new message or fetching information from your database since you only have 3 seconds to respond.
+</div>
+
+<div class="cell medium-6" markdown="1">
 
 ```js
 // Regex to determine if this is a valid email
@@ -27,3 +36,5 @@ app.action({ callback_id: 'ticket_submit' }, async ({ action, ack }) => {
   }
 });
 ```
+
+</div>

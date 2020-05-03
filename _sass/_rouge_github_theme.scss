@@ -207,3 +207,18 @@
 .highlight {
   background-color: #f8f8f8;
 }
+pre.highlight {
+  padding: 2rem;
+  overflow-x: scroll;
+  white-space: pre;
+  border: 1px solid #DDDDDD;
+  border-radius: .2rem;
+}
+pre code {
+  background: 0 0;
+  border: none;
+  padding: 0;
+  color: #1d1c1d;
+  font-size: inherit;
+  white-space: pre;
+}
