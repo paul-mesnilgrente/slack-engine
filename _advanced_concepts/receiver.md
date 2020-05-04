@@ -1,23 +1,28 @@
 ---
 title: Customizing a receiver
+lang: en
+slug: receiver
+order: 8
 ---
+
+<div class="section-content" markdown="1">
 A receiver is responsible for handling and parsing any incoming events from Slack then sending it to the app, so that the app can add context and pass the event to your listeners. Receivers must conform to the Receiver interface:
 
-|   Method  | Parameters | Return type |
-|-----------|------------|-------------|
-| `init()`  | `app: App` | `unkown`    |
-| `start()` | None       | `Promise`   |
-| `stop()`  | None       | `Promise`   |
+| Method       | Parameters                       | Return type |
+|--------------|----------------------------------|-------------|
+| `init()`     | `app: App`                       | `unknown`   |
+| `start()`    | None                             | `Promise`   |
+| `stop()`     | None                             | `Promise`   |
 
-init() is called after Bolt for JavaScript app is created. This method gives the receiver a reference to an App to store so that it can call:
-
-    await app.processEvent(event) whenever your app receives an event from Slack. It will throw if there is an unhandled error.
+`init()` is called after Bolt for JavaScript app is created. This method gives the receiver a reference to an `App` to store so that it can call:
+* `await app.processEvent(event)` whenever your app receives an event from Slack. It will throw if there is an unhandled error.
 
 To use a custom receiver, you can pass it into the constructor when initializing your Bolt for JavaScript app. Here is what a basic custom receiver might look like.
 
-For a more in-depth look at a receiver, read the source code for the built-in ExpressReceiver
+For a more in-depth look at a receiver, [read the source code for the built-in `ExpressReceiver`](https://github.com/slackapi/bolt/blob/master/src/ExpressReceiver.ts)
+</div>
 
-```js
+```javascript
 import { createServer } from 'http';
 import express from 'express';
 

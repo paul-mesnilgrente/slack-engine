@@ -1,15 +1,21 @@
 ---
 title: Listening for view submissions
+lang: en
+slug: view_submissions
+order: 12
 ---
-If a view payload contains any input blocks, you must listen to view_submission events to receive their values. To listen to view_submission events, you can use the built-in view() method.
 
-`view()` requires a callback_id of type string or RegExp.
+<div class="section-content" markdown="1">
+If a <a href="https://api.slack.com/reference/block-kit/views">view payload</a> contains any input blocks, you must listen to <code>view_submission</code> events to receive their values. To listen to <code>view_submission</code> events, you can use the built-in <code>view()</code> method.
 
-You can access the value of the input blocks by accessing the state object. state contains a values object that uses the block_id and unique action_id to store the input values.
+<code>view()</code> requires a <code>callback_id</code> of type <code>string</code> or <code>RegExp</code>.
 
-Read more about view submissions in our API documentation.
+You can access the value of the <code>input</code> blocks by accessing the <code>state</code> object. <code>state</code> contains a <code>values</code> object that uses the <code>block_id</code> and unique <code>action_id</code> to store the input values.
 
-```js
+Read more about view submissions in our <a href="https://api.slack.com/surfaces/modals/using#interactions">API documentation</a>.
+</div>
+
+```javascript
 // Handle a view_submission event
 app.view('view_b', async ({ ack, body, view, context }) => {
   // Acknowledge the view_submission event

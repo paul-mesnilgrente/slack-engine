@@ -2,7 +2,8 @@
   <li>
     <a class="section" href="#basic-concepts">Basic concepts</a>
     <ul class="nested vertical menu">
-      {% for doc in site.basic_concepts %}
+      {% assign basic_sections = site.basic_concepts | sort: "order" | where: "lang", page.lang %}
+      {% for doc in basic_sections %}
       <li>
         <a class="sub-section" href="#{{ doc.title | slugify }}">{{ doc.title }}</a>
       </li>
@@ -12,7 +13,8 @@
   <li>
     <a class="section" href="#advanced-concepts">Advanced concepts</a>
     <ul class="nested vertical menu">
-      {% for doc in site.advanced_concepts %}
+      {% assign advanced_sections = site.advanced_concepts | sort: "order" | where: "lang", page.lang %}
+      {% for doc in advanced_sections %}
       <li>
         <a class="sub-section" href="#{{ doc.title | slugify }}">{{ doc.title }}</a>
       </li>

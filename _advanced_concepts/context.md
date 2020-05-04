@@ -1,11 +1,17 @@
 ---
 title: Adding context
+lang: en
+slug: context
+order: 6
 ---
-All listeners have access to a context object, which can be used to enrich events with additional information. For example, perhaps you want to add user information from a third party system or add temporary state for the next middleware in the chain.
 
-context is just an object, so you can add to it by setting it to a modified version of itself.
+<div class="section-content" markdown="1">
+All listeners have access to a `context` object, which can be used to enrich events with additional information. For example, perhaps you want to add user information from a third party system or add temporary state for the next middleware in the chain.
 
-```js
+`context` is just an object, so you can add to it by setting it to a modified version of itself.
+</div>
+
+```javascript
 async function addTimezoneContext({ payload, context, next }) {
   const user = await app.client.users.info({
     token: context.botToken,

@@ -45,3 +45,27 @@ $padding-top: 25px;
     }
   }
 }
+
+summary {
+  h1, h2, h3, h4, h5, h6 {
+    display: inline-block;
+  }
+}
+
+.primary-wrapper, .secondary-wrapper {
+  @include xy-grid;
+
+  .details-content {
+    @include xy-grid;
+    @include xy-cell;
+  }
+
+  .section-head {
+    @include xy-cell;
+  }
+
+  .section-description, div.highlighter-rouge {
+    @include xy-cell(6);
+  }
+}
+
