@@ -4,29 +4,34 @@ lang: en
 slug: logging
 order: 7
 ---
-
-<div class="section-content" markdown="1">
-By default, Bolt for JavaScript will log information from your app to the console. You can customize how much logging occurs by passing a `logLevel` in the constructor. The available log levels in order of most to least logs are `DEBUG`, `INFO`, `WARN`, and `ERROR`.
+<div class="primary-wrapper" markdown="1">
+  <div class="section-description" markdown="1">
+By default, Bolt for ruby will log information from your app to the console. You
+can customize how much logging occurs by passing a `logLevel` in the
+constructor. The available log levels in order of most to least logs are
+`DEBUG`, `INFO`, `WARN`, and `ERROR`.
 </div>
 
-```javascript
-// Import LogLevel from the package
-const { App, LogLevel } = require('@slack/bolt');
+```ruby
+# Import LogLevel from the package
+const { App, LogLevel } = require('@slack/bolt')
 
-// Log level is one of the options you can set in the constructor
+# Log level is one of the options you can set in the constructor
 const app = new App({
   token,
   signingSecret,
   logLevel: LogLevel.DEBUG,
-});
+})
 ```
 
 <details class="secondary-wrapper" markdown="1">
-<summary class="section-head" markdown="0">
-<h4>Sending log output somewhere besides the console</h4>
-</summary>
+  <summary class="section-head" markdown="0">
+    <h4>Sending log output somewhere besides the console</h4>
+  </summary>
 
-<div class="secondary-content" markdown="1">
+<div class="details-content" markdown="1">
+
+<div class="section-description" markdown="1">
 If you want to send logs to somewhere besides the console or want more control over the logger, you can implement a custom logger. A custom logger must implement specific methods (known as the `Logger` interface):
 
 | Method       | Parameters        | Return type |
@@ -42,24 +47,24 @@ If you want to send logs to somewhere besides the console or want more control o
 A very simple custom logger might ignore the name and level, and write all messages to a file.
 </div>
 
-```javascript
-const { App } = require('@slack/bolt');
-const { createWriteStream } = require('fs');
-const logWritable = createWriteStream('/var/my_log_file'); // Not shown: close this stream
+```ruby
+const { App } = require('@slack/bolt')
+const { createWriteStream } = require('fs')
+const logWritable = createWriteStream('/var/my_log_file') # Not shown: close this stream
 
 const app = new App({
   token,
   signingSecret,
-  // Creating a logger as a literal object. It's more likely that you'd create a class.
+  # Creating a logger as a literal object. It's more likely that you'd create a class.
   logger: {
-    debug(...msgs): { logWritable.write('debug: ' + JSON.stringify(msgs)); },
-    info(...msgs): { logWritable.write('info: ' + JSON.stringify(msgs)); },
-    warn(...msgs): { logWritable.write('warn: ' + JSON.stringify(msgs)); },
-    error(...msgs): { logWritable.write('error: ' + JSON.stringify(msgs)); },
+    debug(...msgs): { logWritable.write('debug: ' + JSON.stringify(msgs)) },
+    info(...msgs): { logWritable.write('info: ' + JSON.stringify(msgs)) },
+    warn(...msgs): { logWritable.write('warn: ' + JSON.stringify(msgs)) },
+    error(...msgs): { logWritable.write('error: ' + JSON.stringify(msgs)) },
     setLevel(): { },
     setName(): { },
   },
-});
+})
 ```
-
+</div>
 </details>
